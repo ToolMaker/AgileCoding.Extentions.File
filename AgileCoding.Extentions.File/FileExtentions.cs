@@ -1,6 +1,7 @@
 ﻿namespace AgileCoding.Extentions.Files
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Security.Cryptography;
@@ -111,6 +112,17 @@
             }
 
             return new FileInfo(zipFileName);
+        }
+
+        public static IEnumerable<string> AllLines(this FileInfo file)
+        {
+            using (StreamReader streamReader = new StreamReader(file.OpenRead()))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    yield return streamReader.ReadLine();
+                }
+            }
         }
     }
 }
