@@ -13,7 +13,15 @@
         {
             if (!File.Exists(filePath))
             {
-                throw (TException)Activator.CreateInstance(typeof(TException), exceptionMessage);
+                var exception = Activator.CreateInstance(typeof(TException), exceptionMessage) as TException;
+                if (exception != null)
+                {
+                    throw exception;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Could not create exception of type " + typeof(TException).FullName);
+                }
             }
         }
 
@@ -46,8 +54,8 @@
             }
         }
 
-        public static void FileIsInUse<TException>(this FileInfo self, string exceptionMessage = null)
-            where TException : Exception
+        public static void FileIsInUse<TException>(this FileInfo self, string? exceptionMessage = null)
+        where TException : Exception
         {
             if (exceptionMessage == null)
             {
@@ -56,7 +64,15 @@
 
             if (FileIsInUse(self))
             {
-                throw (TException)Activator.CreateInstance(typeof(TException), exceptionMessage);
+                var exception = Activator.CreateInstance(typeof(TException), exceptionMessage) as TException;
+                if (exception != null)
+                {
+                    throw exception;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Could not create exception of type " + typeof(TException).FullName);
+                }
             }
         }
 
@@ -67,15 +83,15 @@
 
         public static string ShiftDirectotyBack(this FileInfo file, int directoriesBack, string aditionalPath = "")
         {
-            return string.Format("{0}\\{1}{2}\\{3}", file.Directory.FullName, string.Concat(Enumerable.Repeat("..\\", directoriesBack)), aditionalPath, file.Name);
+            return string.Format("{0}\\{1}{2}\\{3}", file.Directory?.FullName, string.Concat(Enumerable.Repeat("..\\", directoriesBack)), aditionalPath, file.Name);
         }
 
         public static byte[] GetFileHash(this FileInfo file)
         {
-            byte[] result = null;
+            byte[]? result = null;
             using (var stream = file.OpenRead())
             {
-                using (SHA1 sha = new SHA1CryptoServiceProvider())
+                using (SHA1 sha = SHA1.Create())
                 {
                     result = sha.ComputeHash(stream);
                 }
@@ -84,7 +100,7 @@
             return result;
         }
 
-        public static string CreateFileNameWithExtention(this string fileName, string extention)
+        public static string? CreateFileNameWithExtention(this string fileName, string extention)
         {
             if (fileName != null)
             {
@@ -114,7 +130,7 @@
             return new FileInfo(zipFileName);
         }
 
-        public static IEnumerable<string> AllLines(this FileInfo file)
+        public static IEnumerable<string?> AllLines(this FileInfo file)
         {
             using (StreamReader streamReader = new StreamReader(file.OpenRead()))
             {

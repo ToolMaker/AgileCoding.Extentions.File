@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileCoding.Extentions.File", "AgileCoding.Extentions.File\AgileCoding.Extentions.File.csproj", "{0A279362-816B-4BD4-AF96-EF5A57A9CAEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileCoding.Extentions.File", "AgileCoding.Extentions.File\AgileCoding.Extentions.File.csproj", "{731E6E67-C1AF-43B0-ABA8-DDA0E33CE34E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A279362-816B-4BD4-AF96-EF5A57A9CAEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A279362-816B-4BD4-AF96-EF5A57A9CAEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A279362-816B-4BD4-AF96-EF5A57A9CAEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A279362-816B-4BD4-AF96-EF5A57A9CAEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{731E6E67-C1AF-43B0-ABA8-DDA0E33CE34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{731E6E67-C1AF-43B0-ABA8-DDA0E33CE34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{731E6E67-C1AF-43B0-ABA8-DDA0E33CE34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{731E6E67-C1AF-43B0-ABA8-DDA0E33CE34E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
